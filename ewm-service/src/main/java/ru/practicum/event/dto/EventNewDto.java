@@ -21,14 +21,14 @@ public class EventNewDto {
 
 
     @NotBlank
-    @Size
+    @Size(min = 20, max = 2000)
     String annotation;
 
     @NotNull
     Long category;
 
     @NotBlank
-    @Size
+    @Size(min = 20, max = 7000)
     String description;
 
     @NotNull
@@ -50,6 +50,6 @@ public class EventNewDto {
     Boolean requestModeration = true;
 
     @NotBlank
-    @Size
+    @Size(min = 3, max = 120)
     String title;
 }

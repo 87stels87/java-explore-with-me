@@ -18,12 +18,12 @@ import static ru.practicum.Util.DATE_FORMAT;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class EventUpdateDto {
 
-    @Size
+    @Size(min = 20, max = 2000)
     String annotation;
 
     Long category;
 
-    @Size
+    @Size(min = 20, max = 7000)
     String description;
 
     @FutureOrPresent
@@ -40,6 +40,6 @@ public class EventUpdateDto {
 
     StateAction stateAction;
 
-    @Size
+    @Size(min = 3, max = 120)
     String title;
 }

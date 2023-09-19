@@ -16,12 +16,12 @@ public class UserDto {
 
     Long id;
 
-    @Size
+    @Size(min = 2, max = 250)
     @NotBlank
     String name;
 
     @Email
-    @Size
+    @Size(min = 6, max = 254)
     @NotBlank
     String email;
 }
