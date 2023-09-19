@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -16,17 +17,17 @@ public class HitDto {
 
     @NotNull(message = "app cannot be empty.")
     @NotBlank(message = "app it cannot consist only of spaces.")
-    private String app;
+    String app;
 
     @NotNull(message = "uri cannot be empty.")
     @NotBlank(message = "uri it cannot consist only of spaces.")
-    private String uri;
+    String uri;
 
     @NotNull(message = "ip cannot be empty.")
     @NotBlank(message = "ip it cannot consist only of spaces.")
-    private String ip;
+    String ip;
 
     @NotNull(message = "timestamp cannot be empty.")
     @NotBlank(message = "timestamp it cannot consist only of spaces.")
-    private String timestamp;
+    LocalDateTime timestamp;
 }
