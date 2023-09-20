@@ -82,13 +82,7 @@ public class CompilationServiceImpl implements CompilationService {
 
         PageRequest pageRequest = PageRequest.of(from / size, size);
         List<Compilation> compilations;
-
-        if (pinned) {
-            compilations = compilationRepository.findByPinned(pinned, pageRequest);
-        } else {
-            compilations = compilationRepository.findAll(pageRequest).getContent();
-            ;
-        }
+        compilations = compilationRepository.findByPinned(pinned, pageRequest);
         return new ArrayList<>(CollectionMapper.returnCompilationDtoSet(compilations));
     }
 
