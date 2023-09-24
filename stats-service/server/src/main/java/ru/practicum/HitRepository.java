@@ -28,12 +28,13 @@ public interface HitRepository extends JpaRepository<Hit, Long> {
     List<StatsDto> findAllStats(@Param("start") LocalDateTime start,
                                 @Param("end") LocalDateTime end);
 
-    @Query(value = "SELECT new ru.practicum.dto.StatsDto(h.app, h.uri, COUNT (DISTINCT h.ip)) " +
+    @Query(value = "SELECT new ru.practicum.dto.StatsDto(h.app, h.uri, COUNT(DISTINCT h.ip)) " +
             "FROM Hit AS h " +
             "WHERE h.timestamp BETWEEN :start AND :end " +
             "AND h.uri IN :uris " +
             "GROUP BY h.app, h.uri " +
             "ORDER BY COUNT(DISTINCT h.ip) DESC")
+
     List<StatsDto> findStatsByUrisByUniqIp(@Param("start") LocalDateTime start,
                                            @Param("end") LocalDateTime end,
                                            @Param("uris") List<String> uris);
@@ -44,6 +45,7 @@ public interface HitRepository extends JpaRepository<Hit, Long> {
             "AND h.uri IN :uris " +
             "GROUP BY h.app, h.uri " +
             "ORDER BY COUNT(h.ip) DESC")
+
     List<StatsDto> findStatsByUris(@Param("start") LocalDateTime start,
                                    @Param("end") LocalDateTime end,
                                    @Param("uris") List<String> uris);
