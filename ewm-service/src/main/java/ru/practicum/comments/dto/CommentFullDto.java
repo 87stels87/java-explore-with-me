@@ -1,11 +1,11 @@
-package ru.practicum.dto;
+package ru.practicum.comments.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import ru.practicum.event.dto.EventFullDto;
+import ru.practicum.user.dto.UserDto;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 import static ru.practicum.Util.DATE_FORMAT;
@@ -15,20 +15,16 @@ import static ru.practicum.Util.DATE_FORMAT;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class HitDto {
+public class CommentFullDto {
 
     Long id;
 
-    @NotBlank
-    String app;
+    UserDto user;
 
-    @NotBlank
-    String uri;
+    EventFullDto event;
 
-    @NotBlank
-    String ip;
+    String message;
 
-    @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_FORMAT)
-    LocalDateTime timestamp;
+    LocalDateTime created;
 }
